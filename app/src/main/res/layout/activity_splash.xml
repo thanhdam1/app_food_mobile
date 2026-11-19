@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mamzi_green">
+
+    <!-- Top & Center Branding -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/white">
+
+            <ImageView
+                android:id="@+id/ivAppLogo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="MamZi Logo" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="MamZi"
+            android:textColor="@color/white"
+            android:textSize="38sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Thèm là măm - Giao siêu tốc"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <!-- Bottom Delivery Shipper Animation Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp">
+
+            <!-- Shipper Scooter Image View to animate -->
+            <ImageView
+                android:id="@+id/ivShipper"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_delivery_scooter"
+                android:contentDescription="Shipper Animation"
+                android:layout_alignParentBottom="true" />
+
+        </RelativeLayout>
+
+        <!-- Road Line -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/white"
+            android:layout_marginHorizontal="24dp" />
+
+        <TextView
+            android:id="@+id/tvShipperStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:text="🛵 Shipper đang nhận hàng và giao siêu tốc..."
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

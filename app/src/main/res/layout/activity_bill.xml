@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="#F1F5F9">
+
+    <!-- Top Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarBill"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/mamzi_green"
+            app:title="Hóa Đơn Thanh Toán"
+            app:titleTextColor="@color/white"
+            app:subtitleTextColor="#D1FAE5"
+            app:navigationIcon="@android:drawable/ic_menu_revert" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"
+        android:clipToPadding="false">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/white"
+            app:strokeWidth="1dp"
+            app:strokeColor="#E2E8F0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Header: MamZi Restaurant Logo & Info -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivBillLogo"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:src="@drawable/logo"
+                        android:scaleType="centerCrop"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MAMZI FOOD DELIVERY"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/mamzi_green"
+                        android:letterSpacing="0.05"
+                        android:layout_marginTop="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thèm là Măm • Giao siêu tốc 15 phút"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginTop="2dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hotline: 1900 8888 • www.mamzi.vn"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_hint"
+                        android:layout_marginTop="2dp" />
+
+                </LinearLayout>
+
+                <!-- Receipt Status Badge -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_badge_discount"
+                    android:backgroundTint="#ECFDF5"
+                    android:padding="12dp"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:id="@+id/tvBillStatusBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🟢 ĐÃ XÁC NHẬN THANH TOÁN"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/mamzi_green" />
+
+                    <TextView
+                        android:id="@+id/tvBillOrderId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mã HĐ: #MZ-839218"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:id="@+id/tvBillDateTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thời gian: 16:30:15 - 18/11/2026"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginTop="2dp" />
+
+                </LinearLayout>
+
+                <!-- Dashed Line -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/bg_dashed_line"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- Customer Details -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="THÔNG TIN GIAO NHẬN"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_secondary" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Khách hàng:"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvBillCustomer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Nguyễn Văn A (0901 234 567)"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Địa chỉ giao:"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvBillAddress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="88 Pasteur, Phường Bến Nghé, Quận 1, TP.HCM"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Thanh toán:"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvBillPaymentMethod"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tiền mặt khi nhận hàng (COD)"
+                        android:textStyle="bold"
+                        android:textColor="@color/mamzi_orange"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <!-- Dashed Line -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/bg_dashed_line"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- Items Header Table -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="#F8FAFC"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="6dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="MÓN ĂN"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:layout_width="36dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="SL"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="ĐƠN GIÁ"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:layout_width="85dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="T.TIỀN"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_secondary" />
+
+                </LinearLayout>
+
+                <!-- Dynamic Item List Container -->
+                <LinearLayout
+                    android:id="@+id/layoutBillItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp" />
+
+                <!-- Dashed Line -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/bg_dashed_line"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- Calculations -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tạm tính tiền món"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/tvBillSubtotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="98.000 đ"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Phí đóng gói &amp; hộp"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 đ (Tặng)"
+                        android:textColor="@color/mamzi_green"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Phí giao hàng siêu tốc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/tvBillShippingFee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15.000 đ"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Khuyến mãi Freeship"
+                        android:textColor="@color/mamzi_orange"
+                        android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/tvBillDiscount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-15.000 đ"
+                        android:textColor="@color/mamzi_orange"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.5dp"
+                    android:background="#E2E8F0"
+                    android:layout_marginVertical="12dp" />
+
+                <!-- Grand Total -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TỔNG THANH TOÁN"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Đã bao gồm thuế GTGT &amp; phí DV"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_hint" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvBillFinalTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="98.000 đ"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/mamzi_green" />
+
+                </LinearLayout>
+
+                <!-- Dashed Line -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/bg_dashed_line"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- Barcode View -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <vn.edu.vhu.app_eat.view.BarcodeView
+                        android:id="@+id/barcodeView"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginHorizontal="24dp" />
+
+                    <TextView
+                        android:id="@+id/tvBarcodeString"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="* MZ892416020261118 *"
+                        android:textSize="12sp"
+                        android:fontFamily="monospace"
+                        android:letterSpacing="0.1"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quét mã để xác thực hoặc yêu cầu xuất hóa đơn đỏ"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_hint"
+                        android:layout_marginTop="2dp" />
+
+                </LinearLayout>
+
+                <!-- Thank you greeting -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:background="#F8FAFC"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="❤️ CẢM ƠN QUÝ KHÁCH!"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/mamzi_green" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chúc bạn có một bữa ăn ngon miệng cùng MamZi!"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginTop="2dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </ScrollView>
+
+    <!-- Bottom Action Bar with ample navigation bar padding -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="24dp"
+        android:background="@color/white"
+        android:elevation="12dp">
+
+        <Button
+            android:id="@+id/btnShareBill"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:text="📥 Lưu / Chia Sẻ"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/mamzi_green"
+            app:backgroundTint="#E8F8EE"
+            app:cornerRadius="26dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="@color/mamzi_green" />
+
+        <Button
+            android:id="@+id/btnTrackDelivery"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1.3"
+            android:layout_marginStart="12dp"
+            android:text="🚴 Theo Dõi Giao Hàng"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/mamzi_green"
+            app:cornerRadius="26dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

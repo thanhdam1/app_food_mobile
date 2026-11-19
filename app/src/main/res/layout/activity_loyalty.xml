@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_light">
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarLoyalty"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/mamzi_green"
+            app:title="Điểm Tích Lũy &amp; Thành Viên"
+            app:titleTextColor="@color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Rank & Total Points Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/mamzi_green"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="HẠNG THÀNH VIÊN"
+                                android:textColor="#D4EED8"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:letterSpacing="0.08" />
+
+                            <TextView
+                                android:id="@+id/tvLoyaltyRank"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🌟 BẠC (SILVER)"
+                                android:textColor="@color/white"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="2dp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🎖️"
+                            android:textSize="36sp" />
+
+                    </LinearLayout>
+
+                    <!-- Large Points Display -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="bottom"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:id="@+id/tvLoyaltyPoints"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="450"
+                            android:textColor="@color/white"
+                            android:textSize="38sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" điểm thưởng MamZi"
+                            android:textColor="#E8F8EE"
+                            android:textSize="15sp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginBottom="6dp" />
+
+                    </LinearLayout>
+
+                    <!-- Progress Bar to Next Tier -->
+                    <ProgressBar
+                        android:id="@+id/pbTierProgress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:progress="45"
+                        android:max="100"
+                        android:progressTint="@color/mamzi_yellow"
+                        android:progressBackgroundTint="#44FFFFFF"
+                        android:layout_marginTop="12dp" />
+
+                    <TextView
+                        android:id="@+id/tvNextTierNotice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tích thêm 550 điểm để thăng hạng VÀNG (GOLD)"
+                        android:textColor="#E8F8EE"
+                        android:textSize="12sp"
+                        android:layout_marginTop="6dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Rewards & Vouchers Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎁 Đổi điểm nhận Voucher"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginTop="24dp" />
+
+            <!-- Reward 1 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎟️"
+                        android:textSize="32sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Giảm 20.000đ cho mọi đơn"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yêu cầu: 100 điểm thưởng"
+                            android:textSize="12sp"
+                            android:textColor="@color/mamzi_orange"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnRedeem20k"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="Đổi ngay"
+                        android:textSize="12sp"
+                        app:backgroundTint="@color/mamzi_green"
+                        app:cornerRadius="19dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Reward 2 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🛵"
+                        android:textSize="32sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mã Miễn Phí Giao Hàng 0đ"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yêu cầu: 150 điểm thưởng"
+                            android:textSize="12sp"
+                            android:textColor="@color/mamzi_orange"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnRedeemFreeship"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="Đổi ngay"
+                        android:textSize="12sp"
+                        app:backgroundTint="@color/mamzi_green"
+                        app:cornerRadius="19dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Points Transaction History -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📜 Lịch sử tích lũy điểm"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginTop="24dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- History item 1 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Đơn hàng Burger Bò Phô Mai" android:textStyle="bold" android:textColor="@color/text_primary" android:textSize="14sp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="18/11/2026 - 12:45" android:textColor="@color/text_secondary" android:textSize="12sp" />
+                        </LinearLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+50 điểm" android:textColor="@color/mamzi_green" android:textStyle="bold" android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/gray_light" android:layout_marginVertical="10dp" />
+
+                    <!-- History item 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Đơn hàng Trà Sữa Trân Châu" android:textStyle="bold" android:textColor="@color/text_primary" android:textSize="14sp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="17/11/2026 - 15:20" android:textColor="@color/text_secondary" android:textSize="12sp" />
+                        </LinearLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+35 điểm" android:textColor="@color/mamzi_green" android:textStyle="bold" android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/gray_light" android:layout_marginVertical="10dp" />
+
+                    <!-- History item 3 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Điểm danh đăng nhập ngày" android:textStyle="bold" android:textColor="@color/text_primary" android:textSize="14sp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="16/11/2026 - 08:00" android:textColor="@color/text_secondary" android:textSize="12sp" />
+                        </LinearLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+20 điểm" android:textColor="@color/mamzi_green" android:textStyle="bold" android:textSize="15sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <View android:layout_width="match_parent" android:layout_height="24dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

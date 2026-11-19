@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_light">
+
+    <!-- Top App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarTracking"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/mamzi_green"
+            app:title="Theo Dõi Trực Tiếp (GPS Map)"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="@android:drawable/ic_menu_revert" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Interactive Simulated Google Maps Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="270dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#DDE2E5">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- Custom Simulated Map View -->
+                    <vn.edu.vhu.app_eat.ui.tracking.SimulatedMapView
+                        android:id="@+id/simulatedMapView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <!-- Floating Live GPS Badge -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_badge_discount"
+                        android:backgroundTint="#CC000000"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔴 LIVE GPS GOOGLE MAPS"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- Replay Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnReplayMap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="12dp"
+                        android:text="🔄 Chạy lại"
+                        android:textSize="11sp"
+                        android:textColor="@color/white"
+                        app:backgroundTint="@color/mamzi_green"
+                        app:cornerRadius="18dp"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="0dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp" />
+
+                    <!-- Change Pin Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnChangePinLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/btnReplayMap"
+                        android:layout_marginEnd="12dp"
+                        android:text="📍 Đổi điểm ghim"
+                        android:textSize="11sp"
+                        android:textColor="@color/white"
+                        app:backgroundTint="#1A73E8"
+                        app:cornerRadius="18dp"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="0dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp" />
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Real-Time Metrics & Street Info Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- ETA -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dự kiến giao"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary" />
+
+                            <TextView
+                                android:id="@+id/tvTrackingETA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="14 phút (20s)"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/mamzi_orange"
+                                android:layout_marginTop="2dp" />
+
+                        </LinearLayout>
+
+                        <!-- Distance Remaining -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Khoảng cách"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary" />
+
+                            <TextView
+                                android:id="@+id/tvTrackingDistance"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2.8 km"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary"
+                                android:layout_marginTop="2dp" />
+
+                        </LinearLayout>
+
+                        <!-- Live Speed -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="end">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tốc độ xe"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary" />
+
+                            <TextView
+                                android:id="@+id/tvTrackingSpeed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="32 km/h"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/mamzi_green"
+                                android:layout_marginTop="2dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_light"
+                        android:layout_marginVertical="12dp" />
+
+                    <!-- Current Street Name -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📍 "
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvCurrentStreet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Đang trên: Đường Pasteur"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary" />
+
+                    </LinearLayout>
+
+                    <!-- Real-Time Motion Status & Telemetry -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:id="@+id/tvTrackingMotionStatus"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="🟢 Di chuyển ổn định"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/mamzi_green" />
+
+                        <TextView
+                            android:id="@+id/tvLiveTelemetry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🕒 GPS: 15:20:00 • Sai số: 2m"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_secondary" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Driver Info Card -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thông tin tài xế"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginTop="20dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        app:cardCornerRadius="28dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="2dp"
+                        app:strokeColor="@color/mamzi_green">
+
+                        <ImageView
+                            android:id="@+id/ivDriverAvatar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/logo"
+                            android:contentDescription="Driver Avatar" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Trần Văn Tài"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Biển số: 59-B2 888.88 (Honda Wave)"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="2dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⭐ 4.95 (1.4k đánh giá)"
+                            android:textSize="12sp"
+                            android:textColor="@color/mamzi_yellow"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                    <!-- Call Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCallDriver"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        app:icon="@android:drawable/stat_sys_phone_call"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:cornerRadius="22dp"
+                        app:backgroundTint="@color/mamzi_green" />
+
+                    <!-- Chat / Message Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnChatDriver"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="8dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        app:icon="@android:drawable/ic_dialog_email"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:cornerRadius="22dp"
+                        app:backgroundTint="@color/mamzi_orange" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Delivery Order Step Progress -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trạng thái hành trình đơn hàng"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginTop="20dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Step 1 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✅" android:textSize="16sp" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="10dp" android:text="Đã tiếp nhận đơn hàng" android:textStyle="bold" android:textColor="@color/text_primary" android:textSize="14sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="11:30" android:textColor="@color/text_secondary" android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <View android:layout_width="2dp" android:layout_height="18dp" android:background="@color/mamzi_green" android:layout_marginStart="10dp" android:layout_marginVertical="3dp" />
+
+                    <!-- Step 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✅" android:textSize="16sp" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="10dp" android:text="Bếp đã chuẩn bị xong món" android:textStyle="bold" android:textColor="@color/text_primary" android:textSize="14sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="11:35" android:textColor="@color/text_secondary" android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <View android:layout_width="2dp" android:layout_height="18dp" android:background="@color/mamzi_green" android:layout_marginStart="10dp" android:layout_marginVertical="3dp" />
+
+                    <!-- Step 3 (Live) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🛵" android:textSize="18sp" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="10dp" android:text="Tài xế đang giao siêu tốc tới bạn" android:textStyle="bold" android:textColor="@color/mamzi_green" android:textSize="14sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ĐANG GIAO" android:textColor="@color/mamzi_orange" android:textSize="11sp" android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View android:layout_width="2dp" android:layout_height="18dp" android:background="#E0E0E0" android:layout_marginStart="10dp" android:layout_marginVertical="3dp" />
+
+                    <!-- Step 4 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⚪" android:textSize="16sp" />
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="10dp" android:text="Giao hàng thành công" android:textColor="@color/text_secondary" android:textSize="14sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dự kiến 11:55" android:textColor="@color/text_secondary" android:textSize="12sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- View Bill Button -->
+            <Button
+                android:id="@+id/btnViewBill"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:text="🧾 Xem Hóa Đơn Thanh Toán (Bill)"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/mamzi_green"
+                app:backgroundTint="#E8F8EE"
+                app:cornerRadius="25dp"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="@color/mamzi_green" />
+
+            <View android:layout_width="match_parent" android:layout_height="24dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

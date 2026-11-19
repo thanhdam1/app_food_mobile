@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_light">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarCheckout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/mamzi_green"
+            app:title="Thanh Toán Đơn Hàng"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="@android:drawable/ic_menu_revert" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Địa chỉ nhận hàng"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCheckoutAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:id="@+id/tvCheckoutCustomer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nguyễn Văn A (0901234567)"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary" />
+                    <TextView
+                        android:id="@+id/tvCheckoutAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP.HCM"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phương thức thanh toán"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+                <RadioButton
+                    android:id="@+id/rbCod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Tiền mặt khi nhận hàng (COD)" />
+                <RadioButton
+                    android:id="@+id/rbBanking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chuyển khoản Ngân hàng (QR Code)" />
+                <RadioButton
+                    android:id="@+id/rbMomo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ví điện tử MoMo" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chi tiết thanh toán"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tạm tính tiền món"/>
+                        <TextView android:id="@+id/tvCheckoutSubtotal" android:text="98.000 đ" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Phí vận chuyển"/>
+                        <TextView android:id="@+id/tvCheckoutShipping" android:text="15.000 đ" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Khuyến mãi Freeship" android:textColor="@color/mamzi_orange"/>
+                        <TextView android:id="@+id/tvCheckoutDiscount" android:text="-15.000 đ" android:textColor="@color/mamzi_orange" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tổng thanh toán" android:textStyle="bold" android:textColor="@color/text_primary"/>
+                        <TextView android:id="@+id/tvFinalAmount" android:text="98.000 đ" android:textStyle="bold" android:textColor="@color/mamzi_green" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnPlaceOrder"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_margin="16dp"
+        android:text="Xác Nhận Đặt Hàng &amp; Xuất Hóa Đơn"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/mamzi_green"
+        app:cornerRadius="27dp" />
+
+</LinearLayout>

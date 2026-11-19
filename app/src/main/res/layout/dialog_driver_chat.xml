@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_light">
+
+    <!-- Top Chat Header Bar -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="3dp"
+        app:cardBackgroundColor="@color/white"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp">
+
+            <!-- Driver Avatar with Online Dot -->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardDriverAvt"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    app:cardCornerRadius="22dp"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="@color/mamzi_green"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:id="@+id/ivChatHeaderDriverAvt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/logo" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Online Green Dot -->
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignEnd="@id/cardDriverAvt"
+                    android:layout_alignBottom="@id/cardDriverAvt"
+                    android:background="@drawable/bg_badge_discount"
+                    android:backgroundTint="#00C853" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tài xế Trần Văn Tài"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🟢 Đang giao đơn • 59-B2 888.88"
+                    android:textSize="12sp"
+                    android:textColor="@color/mamzi_green"
+                    android:layout_marginTop="1dp" />
+
+            </LinearLayout>
+
+            <!-- Quick Phone Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnChatCallDriver"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:icon="@android:drawable/stat_sys_phone_call"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:cornerRadius="19dp"
+                app:backgroundTint="@color/mamzi_green" />
+
+            <!-- Close Dialog Button -->
+            <ImageView
+                android:id="@+id/btnCloseChat"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:padding="6dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                app:tint="@color/text_secondary"
+                android:contentDescription="Close" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Chat Messages RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChatMessages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingTop="12dp"
+        android:paddingBottom="8dp" />
+
+    <!-- Quick Message Suggestion Chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="6dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chip1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🛵 Đến nơi alo mình nhé"
+                android:textSize="12sp"
+                android:textColor="@color/text_primary"
+                android:background="@drawable/bg_badge_discount"
+                android:backgroundTint="#EAECEE"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/chip2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🚪 Để trước cửa phòng giúp mình"
+                android:textSize="12sp"
+                android:textColor="@color/text_primary"
+                android:background="@drawable/bg_badge_discount"
+                android:backgroundTint="#EAECEE"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/chip3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌶️ Cho mình xin thêm tương ớt"
+                android:textSize="12sp"
+                android:textColor="@color/text_primary"
+                android:background="@drawable/bg_badge_discount"
+                android:backgroundTint="#EAECEE"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/chip4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💵 Mình trả tiền mặt nhé"
+                android:textSize="12sp"
+                android:textColor="@color/text_primary"
+                android:background="@drawable/bg_badge_discount"
+                android:backgroundTint="#EAECEE"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp" />
+                android:textSize="12sp"
+                android:textColor="@color/text_primary"
+                android:background="@drawable/bg_badge_discount"
+                android:backgroundTint="#EAECEE"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Bottom Input Bar -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="@color/white"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp">
+
+            <EditText
+                android:id="@+id/etChatMessage"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_badge_discount"
+                android:backgroundTint="#F1F3F4"
+                android:hint="Nhập tin nhắn gửi bác tài..."
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint"
+                android:paddingHorizontal="16dp"
+                android:inputType="textCapSentences|textAutoCorrect"
+                android:importantForAutofill="no" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSendMessage"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="8dp"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:icon="@android:drawable/ic_menu_send"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:cornerRadius="22dp"
+                app:backgroundTint="@color/mamzi_green" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

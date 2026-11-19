@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="4dp">
+
+    <!-- Driver Message Bubble (Left) -->
+    <LinearLayout
+        android:id="@+id/layoutDriverMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:orientation="horizontal"
+        android:gravity="bottom">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            android:layout_marginEnd="8dp">
+
+            <ImageView
+                android:id="@+id/ivDriverChatAvt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logo" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="#F1F3F4"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <TextView
+                    android:id="@+id/tvDriverMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="10dp"
+                    android:textColor="#202124"
+                    android:textSize="14sp"
+                    android:maxWidth="260dp"
+                    android:text="Chào bạn, mình là tài xế Tài" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvDriverTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11:42"
+                android:textSize="11sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="2dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- User Message Bubble (Right) -->
+    <LinearLayout
+        android:id="@+id/layoutUserMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="vertical"
+        android:gravity="end">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/mamzi_green"
+            app:cardElevation="1dp"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/tvUserMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="10dp"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:maxWidth="260dp"
+                android:text="Đến nơi gọi mình nhé!" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvUserTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:43 • Đã nhận"
+            android:textSize="11sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="2dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

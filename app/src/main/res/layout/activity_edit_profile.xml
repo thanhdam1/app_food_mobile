@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_light">
+
+    <!-- Header Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarEditProfile"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/mamzi_green"
+            app:title="Chỉnh Sửa Thông Tin Cá Nhân"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="@android:drawable/ic_menu_revert" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- Big Avatar Preview with Camera Badge -->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardEditAvatar"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="3dp"
+                    app:strokeColor="@color/mamzi_green">
+
+                    <ImageView
+                        android:id="@+id/ivEditAvatar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/logo"
+                        android:contentDescription="Avatar" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Camera Badge Icon -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignEnd="@id/cardEditAvatar"
+                    android:layout_alignBottom="@id/cardEditAvatar"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="@color/mamzi_green"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="@color/white">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center"
+                        android:src="@android:drawable/ic_menu_camera"
+                        app:tint="@color/white"
+                        android:contentDescription="Camera" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chọn ảnh đại diện của bạn"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chạm vào avatar bên dưới để chọn ngay:"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="2dp" />
+
+            <!-- Horizontal Avatar Choices -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/layoutAvatarPresets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="4dp">
+
+                    <!-- Avatar 1 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardAvt1"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="28dp"
+                        app:strokeWidth="3dp"
+                        app:strokeColor="@color/mamzi_green"
+                        app:cardElevation="2dp">
+                        <ImageView
+                            android:id="@+id/ivPresetAvt1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Avatar 2 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardAvt2"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="28dp"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/gray_light"
+                        app:cardElevation="2dp">
+                        <ImageView
+                            android:id="@+id/ivPresetAvt2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Avatar 3 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardAvt3"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="28dp"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/gray_light"
+                        app:cardElevation="2dp">
+                        <ImageView
+                            android:id="@+id/ivPresetAvt3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Avatar 4 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardAvt4"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="28dp"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/gray_light"
+                        app:cardElevation="2dp">
+                        <ImageView
+                            android:id="@+id/ivPresetAvt4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Avatar 5 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardAvt5"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_marginEnd="12dp"
+                        app:cardCornerRadius="28dp"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/gray_light"
+                        app:cardElevation="2dp">
+                        <ImageView
+                            android:id="@+id/ivPresetAvt5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Avatar 6 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardAvt6"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        app:cardCornerRadius="28dp"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/gray_light"
+                        app:cardElevation="2dp">
+                        <ImageView
+                            android:id="@+id/ivPresetAvt6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Input Form Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thông tin cá nhân"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary" />
+
+                    <!-- Full Name -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:startIconDrawable="@drawable/ic_nav_profile"
+                        app:startIconTint="@color/mamzi_green"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etEditFullName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Họ và Tên"
+                            android:inputType="textPersonName"
+                            android:text="Nguyễn Văn A" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Phone Number -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:startIconDrawable="@android:drawable/stat_sys_phone_call"
+                        app:startIconTint="@color/mamzi_green"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etEditPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Số điện thoại"
+                            android:inputType="phone"
+                            android:text="0901 234 567" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Email -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:startIconDrawable="@android:drawable/ic_dialog_email"
+                        app:startIconTint="@color/mamzi_green"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etEditEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress"
+                            android:text="vana@gmail.com" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Default Delivery Address -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:startIconDrawable="@drawable/ic_nav_home"
+                        app:startIconTint="@color/mamzi_green"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etEditAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Địa chỉ giao hàng mặc định"
+                            android:inputType="textPostalAddress"
+                            android:text="123 Nguyễn Huệ, Quận 1, TP.HCM" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Save Changes Button -->
+            <Button
+                android:id="@+id/btnSaveProfile"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="24dp"
+                android:text="LƯU THAY ĐỔI"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/mamzi_green"
+                app:cornerRadius="27dp" />
+
+            <View android:layout_width="match_parent" android:layout_height="24dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
