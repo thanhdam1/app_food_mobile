@@ -26,6 +26,7 @@ Thư mục dành riêng cho vị trí **Data & Database**, chịu trách nhiệm
 
 ---
 
-## 3. Các Tệp Tin Chính
-* [`schema.sql`](file:///c:/Users/KhanhHV/.gemini/antigravity/scratch/app_food_mobile/database/schema.sql): Script tạo toàn bộ bảng DDL, khóa chính, khóa ngoại và chỉ mục (Index).
-* [`seed_data.sql`](file:///c:/Users/KhanhHV/.gemini/antigravity/scratch/app_food_mobile/database/seed_data.sql): Dữ liệu mẫu phong phú bằng tiếng Việt cho món ăn, danh mục, flash sale, tài xế và voucher.
+## 3. Nhiệm Vụ Cần Thực Hiện
+- [ ] Thiết kế sơ đồ quan hệ thực thể (ERD) hoàn chỉnh cho 11 bảng trên.
+- [ ] Viết file script `schema.sql` (tạo database, bảng, khóa chính, khóa ngoại, index).
+- [ ] Viết file script `seed_data.sql` (nạp dữ liệu mẫu có sẵn món ăn, flash sale, tài xế để test).
